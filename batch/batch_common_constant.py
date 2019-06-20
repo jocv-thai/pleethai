@@ -1,6 +1,6 @@
-# common constants
+# batch common constants
 
-# about excel
+# About excel
 # target excel sheet name
 WORK_SHEET_NAME = 'for edit'
 # target sheet index
@@ -20,7 +20,7 @@ TH_BEF_COL = 'E'
 TH_AFT_COL = 'F'
 
 
-# about DB
+# About DB
 # DB table name
 NAME_TABLE = 'Word'
 # start id

@@ -65,7 +65,7 @@ def get_col_tuple(file: str, sheet: str, col: str):
 
     :param file: target file path
     :param sheet: target sheet name
-    :param column: target column name
+    :param col: target column name
     :rtype: tuple
     '''
     # open workbook (not DB data)
@@ -78,6 +78,7 @@ def get_col_tuple(file: str, sheet: str, col: str):
 def write_subtitle(active_sheet, subtitles: list):
     '''returns Workbook which finish to set subtitle
 
+    :param active_sheet: active work sheet
     :param subtitles: subtitle which want to set DB excel
     :rtype: Worksheet(active)
     '''
@@ -86,7 +87,15 @@ def write_subtitle(active_sheet, subtitles: list):
     
     return active_sheet
 
-def write_2d(active_sheet, data_2d, st_row, st_col):
+def write_2d(active_sheet, data_2d, st_row = 1, st_col = 1):
+    '''writes 2D data on active sheet
+
+    :param active_sheet: active work sheet
+    :param data_2d: 2Ddata which want to write
+    :param st_row: row which start writing on excel sheet
+    :param st_col: column which start writing on excel sheet
+    :rtype: None
+    '''
     for x, col in enumerate(data_2d):
         for y, cell in enumerate(col):
             active_sheet.cell(row=st_row + y,\
