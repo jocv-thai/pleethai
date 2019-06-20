@@ -5,12 +5,8 @@ Specify an excel file to be read as a command line argument.
 python batch_get_searches.py <file_path>
 '''
 import sys, os, re, openpyxl
-from scraper import scraper
-
-# constant
-SEARCHES_COLUMN = 'J'
-JAPANESE_COLUMN = 'B'
-WORD_SHEET_INDEX = 0
+from batch_common import scraper
+from batch_common_constant import SEARCHES_COL, JP_COL, WORK_SHEET_INDEX
 
 # main
 # check command line argument
@@ -29,14 +25,14 @@ try:
 except:
     sys.exit()
 
-# open workbook
+# read to open workbook
 wb = openpyxl.load_workbook(file_name)
-# get first worksheet
-ws = wb.get_sheet_by_name(wb.get_sheet_names()[WORD_SHEET_INDEX])
-# get tuple column "searches"
-cl_s = ws[SEARCHES_COLUMN]
-# make variable for cell of "japanese"
-cl_j = ws[JAPANESE_COLUMN]
+# get worksheet
+ws = wb.get_sheet_by_name(wb.get_sheet_names()[WORK_SHEET_INDEX])
+# tuple cell of "searches"
+cl_s = ws[SEARCHES_COL]
+# tuple cell of "japanese"
+cl_j = ws[JP_COL]
 # setting for scraper
 scrapings = [{'search_tag': 'div','attrs': {'id': 'resultStats'}}]
 
@@ -50,7 +46,7 @@ for i in range(2, len(cl_j)+1):
         params={'q': "allinetext:" + vl_cl_j, \
         'oe': 'utf-8', \
         'hl': 'ja' }
-        ws[SEARCHES_COLUMN + str(i)] = int(re.findall(r'([0-9,]+)',scraper(params, scrapings)[0])[0].replace(",",""))
+        ws[SEARCHES_COL + str(i)] = int(re.findall(r'([0-9,]+)',scraper(params, scrapings)[0])[0].replace(",",""))
 
 # save workbook
 wb.save(file_name)
