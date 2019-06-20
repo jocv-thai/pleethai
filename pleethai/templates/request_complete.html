@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}リクエストメール送信完了{% endblock title %}
+
+{% block content %}
+<div class="col">
+    リクエストメール送信完了
+</div>
+<div class="col">
+    リクエストありがとうございました。
+    管理者からの連絡をお待ちください。
+</div>
+<div class="container">
+    <div class="row justify-content-start">
+        <div class="m-1">
+            <!-- TODO actionには検索画面のurl名を使う -->
+            <form action="/search/" method="GET">
+                <button type="submit" class="btn btn-primary btn-lg">TOP</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}

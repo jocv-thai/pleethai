@@ -1,3 +1,4 @@
+import dj_database_url
 """
 Django settings for config project.
 
@@ -119,7 +120,6 @@ USE_TZ = True
 
 
 # Parse database configuration from $DATABASE_URL
-import dj_database_url
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
 
@@ -129,9 +129,10 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 # Allow all host headers
 ALLOWED_HOSTS = ['*']
 
+# crispy
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 # Static asset configuration
-import os
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 
@@ -146,3 +147,22 @@ SASS_PROCESSOR_INCLUDE_FILE_PATTERN = r'^.+\.scss$'
 SASS_PRECISION = 8
 SASS_OUTPUT_STYLE = 'compact'
 SASS_TEMPLATE_EXTS = ['.html', '.haml']
+
+# Mail send
+# FOR DEBUG
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = 1025
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_USE_TLS = False
+
+REQUSET_MAIL_SEND_INFO = {
+    'subject': 'Pleethai Request Recieved',
+    'templete_path': 'mails/request.txt',
+    'from_email': 'from@test.com',
+    'recipient_list': [
+        'to@test.com',
+    ],
+}

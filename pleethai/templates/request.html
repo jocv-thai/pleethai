@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}リクエスト{% endblock title %}
+
+{% block content %}
+<form name='req_form' action="{% url 'mail_confirm' %}" method="post" novalidate="novalidate">
+    {% csrf_token %}
+    <fieldset>
+        <legend>リクエスト</legend>
+        {{ form|crispy }}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">確認</button>
+</form>
+{% endblock content %}

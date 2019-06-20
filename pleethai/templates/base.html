@@ -1,0 +1,52 @@
+{% load i18n static %}
+<!doctype html>
+{% get_current_language as LANGUAGE_CODE %}
+<html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+
+    <!-- Extra CSS -->
+    {% block extra_css %}{% endblock %}
+
+    <title>{% block title %}Title{% endblock %}</title>
+</head>
+
+<body>
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link" href="#">単語</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">例文</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'mail_input' %}">リクエスト</a>
+        </li>
+    </ul>
+
+    <div class="container">
+        {% block content %}
+        {{ content }}
+        {% endblock %}
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Optional JavaScript -->
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

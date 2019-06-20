@@ -1,0 +1,8 @@
+ぷれータイ　リクエストメールです。
+
+リクエスト情報
+{{form.name.label }}:{{ form.name.value }}
+{{form.mail1.label }}:{{ form.mail1.value }}
+{{form.content.label }}:{{ form.content.value }}
+
+以上

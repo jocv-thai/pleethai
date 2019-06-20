@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %}リクエスト内容確認{% endblock title %}
+
+{% block content %}
+<div class="col">
+    リクエスト内容確認
+</div>
+<div class="container border rounded">
+    <div class="form-group">
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label_tag }}</label>
+        {{ form.name.value }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.mail1.id_for_label }}">{{ form.mail1.label_tag }}</label>
+        {{ form.mail1.value }}
+    </div>
+    <div class="form-group">
+        <label for="{{ form.content.id_for_label }}">{{ form.content.label_tag }}</label>
+        {{ form.content.value }}
+    </div>
+</div>
+<div class="col">
+    この内容で管理者にリクエストメールを送信します。
+</div>
+<div class="container">
+    <div class="row justify-content-start">
+        <div class="m-1">
+            <form action="{% url 'mail_complete' %}" method="POST">
+                <button type="submit" class="btn btn-primary btn-lg">送信</button>
+                {% for field in form %}{{ field.as_hidden }}{% endfor %}
+                {% csrf_token %}
+            </form>
+        </div>
+        <div class="m-1">
+            <form action="{% url 'mail_input' %}" method="POST">
+                <button type="submit" class="btn btn-primary btn-lg">修正</button>
+                {% for field in form %}{{ field.as_hidden }}{% endfor %}
+                {% csrf_token %}
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock content %}
