@@ -45,6 +45,20 @@ def conv_hiragana_to_roman(word):
     
     return conv.do(word)
 
+
+def conv_kanji_to_hiragana(word):
+    '''conversion kanji to hiragana
+    
+    :param word: target word
+    :rtype: String
+     '''
+    k = kakasi()
+    # set mode Hiragana to roman
+    k.setMode('J', 'H')
+    conv = k.getConverter()
+
+    return conv.do(word)
+
 def get_part_of_speech(word):
     '''get part of speech 
     if the word is "オームの法則", part of speech is that of "法則"

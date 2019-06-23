@@ -46,7 +46,21 @@ for i in range(2, len(cl_j)+1):
         params={'q': "allinetext:" + vl_cl_j, \
         'oe': 'utf-8', \
         'hl': 'ja' }
-        ws[SEARCHES_COL + str(i)] = int(re.findall(r'([0-9,]+)',scraper(params, scrapings)[0])[0].replace(",",""))
+        try:
+            ws[SEARCHES_COL + str(i)] = int(re.findall(r'([0-9,]+)',scraper(params, scrapings)[0])[0].replace(",",""))
+        except IndentationError as e:
+            print(e)
+            i += 1
+            continue
+        except IndexError as e:
+            print(e)
+            i += 1
+            continue
+        except KeyboardInterrupt:
+            break
+        except:
+            # other error
+            break
 
 # save workbook
 wb.save(file_name)
