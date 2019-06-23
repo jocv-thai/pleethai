@@ -1,0 +1,24 @@
+{% load tags %}
+<div class="row row-word" href="/word/{{ object.id }}/" data-toggle="modal" data-target="#detail-modal">
+    <div class="col-6">
+        <div><h5>{{ object.japanese }}</h5></div>
+        <div>{{ object.hiragana }} {{ object.roman }}</div>
+        <div>{{ object.wordclass_id.slug }} Hit: {{ object.searchs }}</div>
+    </div>
+    <div class="col-6">
+    {% with object.id|get_thai_list as thai_list %}
+        {% for thai in thai_list %}
+            <div>
+                <div class="d-inline-block w-75">
+                    <h5>{{ forloop.counter }}. {{ thai.thai }}</hd>
+                </div>
+                <div class="d-inline-block">
+                    <h5>{{ thai.english }}</h5>
+                </div>
+            </div>
+        {% endfor %}
+    {% endwith %}
+    </div>
+</div>
+<hr>
+

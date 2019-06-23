@@ -1,0 +1,8 @@
+<div>This is example detail page.This is example detail page.This is example detail page.This is example detail page.This is example detail page.This is example detail page.This is example detail page.This is example detail page.This is example detail page.</div>
+<div class="link" href="/word/1/">link test</div>
+
+<script>
+    $('.link').click(function(e) {
+        $("#detail-modal .modal-content").load($(this).attr("href"));
+    });
+</script>

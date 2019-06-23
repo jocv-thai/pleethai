@@ -1,5 +1,5 @@
 {% load i18n static %}
-<!doctype html>
+<!DOCTYPE html>
 {% get_current_language as LANGUAGE_CODE %}
 <html lang="{{ LANGUAGE_CODE|default:"en-us" }}">
 
@@ -20,10 +20,7 @@
 <body>
     <ul class="nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link" href="#">単語</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">例文</a>
+            <a class="nav-link" href="{% url 'search' %}">単語・例文</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{% url 'mail_input' %}">リクエスト</a>
@@ -37,8 +34,8 @@
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -48,5 +45,4 @@
     <!-- Optional JavaScript -->
     {% block extra_js %}{% endblock %}
 </body>
-
 </html>

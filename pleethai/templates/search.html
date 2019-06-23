@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}PleeThai{% endblock %}
+{% block extra_js %}
+<script type="text/javascript" src="{% static 'js/search.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.inview.min.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="m-2">
+    <form action="#">
+        <input id="keyword" class="form-control" type="text" placeholder="Search" aria-label="Search">
+    </form>
+</div>
+<!-- Tab Navigation -->
+<ul class="nav nav-tabs nav-fill" role="tablist">
+    <li class="nav-item">
+      <a id="nav1" href="#tab1" class="nav-item nav-link active" data-toggle="tab" role="tab" aria-controls="tab1" aria-selected="true">Word</a>
+    </li>
+    <li class="nav-item">
+      <a id="nav2" href="#tab2" class="nav-item nav-link" data-toggle="tab" aria-controls="tab2" aria-selected="false">Example</a>
+    </li>
+</ul>
+<div class="tab-content" id="searchcontainer">
+    <!-- Word Content -->
+    <div id="tab1" class="tab-pane fade show active mb-5" role="tabpanel" aria-labelledby="nav1">
+        <div id="wordcontainer" class="container"></div>
+        <div id="wordbottom"></div>
+        <div class="d-flex justify-content-center">
+            <div id="wordloading" class="spinner-border text-primary"></div>
+        </div>
+    </div>
+    <!-- Example Content -->
+    <div id="tab2" class="tab-pane fade mb-5" role="tabpanel" aria-labelledby="nav2">
+        <div id="examplecontainer" class="container"></div>
+        <div id="examplebottom"></div>
+        <div class="d-flex justify-content-center">
+            <div id="exampleloading" class="spinner-border text-primary"></div>
+        </div>
+    </div>
+</div>
+<!-- Detail Modal -->
+<div class="modal fade" id="detail-modal">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content"></div>
+    </div>
+</div>
+{% endblock %}
