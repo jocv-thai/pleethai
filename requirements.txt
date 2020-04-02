@@ -39,6 +39,7 @@ ipykernel==5.1.0
 ipython==7.2.0
 ipython-genutils==0.2.0
 isort==4.3.4
+Janome==0.3.9
 jdcal==1.4
 jedi==0.13.2
 Jinja2==2.10
@@ -74,6 +75,7 @@ pycosat==0.6.3
 pycurl==7.43.0.1
 pyflakes==2.1.0
 Pygments==2.3.1
+pykakasi==0.96
 pylint==2.2.2
 pyparsing==2.3.1
 PyQt5==5.12
@@ -91,6 +93,7 @@ requests==2.21.0
 rjsmin==1.1.0
 rope==0.12.0
 ruamel.yaml==0.15.35
+semidbm==0.5.1
 six==1.12.0
 snowballstemmer==1.2.1
 soupsieve==1.9.1
