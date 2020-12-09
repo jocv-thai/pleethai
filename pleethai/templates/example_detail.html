@@ -1,9 +1,11 @@
 {% load i18n tags %}
 {% get_current_language as LANGUAGE_CODE %}
 <div class="modal-body">
-    <div><h4>{{ object.japanese }}</h4></div>
-    <div>{{ object.hiragana }}</div>
-    <div>{{ object.roman }}</div>
+    <section class="speech-button-ja">
+        <div><h4>{{ object.japanese }}</h4></div>
+        <div class="speech-target">{{ object.hiragana }}</div>
+        <div>{{ object.roman }}</div>
+    </section>
     <div>
         {% with object.id|get_tags_by_example as tag_list %}
             {% for tag in tag_list %}
@@ -18,8 +20,8 @@
         {% endwith %}
     </div>
     <hr>
-    <div><h4>{{ object.thai }}</h4></div>
-    <div>{{ object.english }}</div>
+    <div class="speech-button-th"><h4 class="speech-target">{{ object.thai }}</h4></div>
+    <div class="speech-button-en"><span class="speech-target">{{ object.english }}</span></div>
     {% with object.id|get_consts_by_example as const_list %}
         {% if const_list %}
             <hr>

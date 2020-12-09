@@ -58,9 +58,10 @@ input.flag {
     margin-right: 10px;
 }
 
-/* *** Floating Icons *** */
+/* *** Floating Icons (shown in big screen) *** */
 .icon_div {
     display: none; /* only shown in big screen */
+
     width: 250px;
     height: 50px;
     position: fixed;
@@ -88,7 +89,7 @@ input.flag {
     height: 50px;
     line-height: 50px;
     text-decoration: none;
-    padding-left: 45px;
+    padding-left: 50px;
     padding-right: 30px;
 }
 .icon_div a:visited {
@@ -113,10 +114,16 @@ input.flag {
     top: 30px;
 }
 #icon_about a::before{
-    content: '\f128';
+    content: '\f129';
 }
 
+/* Settings for PC */
 @media only screen and (min-width : 768px) {
+    body {
+        /* without this, window elements will move with every search */
+        overflow-y: scroll;
+    }
+
     .icon_div {
         display: inherit;
     }

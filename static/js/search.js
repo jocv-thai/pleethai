@@ -76,10 +76,16 @@ $(document).ready(function(){
         if (!holdFlag) {
             if ($(this).is('.row-word, .row-example')) {
                 $( "#detail-modal .modal-content" ).load($(this).attr("href"), function() {
+                    // set speakbale indicator
+                    setSpeakableOrNot();
+
                     $("#detail-modal").modal("show");
                 });
             } else if($(this).is('.modallink-word, .modallink-example')) {
-                $("#detail-modal .modal-content").load($(this).attr("href"));
+                $("#detail-modal .modal-content").load($(this).attr("href"), function() {
+                    // set speakbale indicator
+                    setSpeakableOrNot();
+                });
             }
 
             // modal word/example access

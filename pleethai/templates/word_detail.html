@@ -1,9 +1,11 @@
 {% load i18n tags %}
 {% get_current_language as LANGUAGE_CODE %}
 <div class="modal-body">
-    <div><h4>{{ object.japanese }}</h4></div>
-    <div>{{ object.hiragana }}</div>
-    <div>{{ object.roman }}</div>
+    <section class="speech-button-ja">
+        <div><h4>{{ object.japanese }}</h4></div>
+        <div class="speech-target">{{ object.hiragana }}</div>
+        <div>{{ object.roman }}</div>
+    </section>
     <div>
         <div>
             {% if LANGUAGE_CODE == "ja" %}
@@ -35,8 +37,8 @@
             <div class="card mb-2">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-6"><h6>{{ forloop.counter }}. {{ word_con.word_id.thai }}</h6></div>
-                        <div class="col-6"><h6>{{ word_con.word_id.english }}</h6></div>
+                        <div class="col-6 speech-button-th"><h6>{{ forloop.counter }}. <span class="speech-target">{{ word_con.word_id.thai }}</span></h6></div>
+                        <div class="col-6 speech-button-en"><h6 class="speech-target">{{ word_con.word_id.english }}</h6></div>
                     </div>
                 </div>
             </div>

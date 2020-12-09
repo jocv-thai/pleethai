@@ -2,7 +2,7 @@
 
 ![deploy gaifaa](https://github.com/jocv-thai/pleethai/workflows/deploy%20gaifaa/badge.svg)
 
-[日本語](../../README.md) | English
+[日本語](../../README.md) | English | [ภาษาไทย](../th/README.md)
 
 # Overview
 GaifaaYeepun is a dictionary website project for Japanese, Thai, and English words/sentences, powered by Django.
@@ -35,10 +35,10 @@ words/sentences to the system manager from the "Request Page".
 ## details of each page
 
 - [Search Page](./howtouse_search.md)  
-[<img src ="https://user-images.githubusercontent.com/42882840/100090635-cf21c100-2e96-11eb-98ec-18694d4d44c9.gif" alt="search demo" width="320">](./howtouse_search.md)
+[<img src ="https://user-images.githubusercontent.com/42882840/101600410-96f5b300-3a3e-11eb-946c-67aa101f1ddb.gif" alt="search demo" width="320">](./howtouse_search.md)
 
 - [Request Page](./howtouse_request.md)  
-[<img src ="https://user-images.githubusercontent.com/42882840/100090636-d0eb8480-2e96-11eb-823e-e0059da94e58.gif" alt="request demo" width="320">](./howtouse_request.md)
+[<img src ="https://user-images.githubusercontent.com/42882840/101600726-0f5c7400-3a3f-11eb-8bad-3a91b21d8d55.png" alt="request demo" width="320">](./howtouse_request.md)
 
 
 # System Maintenance Procedure

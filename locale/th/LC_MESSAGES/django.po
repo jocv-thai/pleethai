@@ -44,7 +44,7 @@ msgstr "อีเมลสำหรับการยืนยัน"
 
 #: .\pleethai\forms.py:11
 msgid "リクエスト内容"
-msgstr "ขอการยืนยันเนื้อหา"
+msgstr "เนื้อหาที่ต้องการขอร้อง"
 
 #: .\pleethai\forms.py:12
 msgid ""
@@ -85,7 +85,7 @@ msgstr "ส่งอีเมลคำขอของคุณแล้ว"
 
 #: .\pleethai\templates\request_complete.html:10
 msgid "リクエストありがとうございました。管理者からの連絡をお待ちください。"
-msgstr "ขอบคุณสำหรับคำขอของคุณ กรุณารอการติดต่อจากผู้ดูแลระบบ"
+msgstr "ขอบคุณสำหรับคำขอของคุณ กรุณารอการติดต่อจากผู้จัดการระบบ"
 
 #: .\pleethai\templates\request_confirm.html:3
 #: .\pleethai\templates\request_confirm.html:7
@@ -94,7 +94,7 @@ msgstr "ขอการยืนยันเนื้อหา"
 
 #: .\pleethai\templates\request_confirm.html:26
 msgid "この内容で管理者にリクエストメールを送信します。"
-msgstr "ส่งอีเมล์ขอให้ผู้ดูแลระบบ"
+msgstr "ส่งอีเมลขอให้ผู้จัดการระบบ"
 
 #: .\pleethai\templates\request_confirm.html:32
 msgid "送信"
@@ -102,7 +102,7 @@ msgstr "ส่ง"
 
 #: .\pleethai\templates\request_confirm.html:39
 msgid "修正"
-msgstr "แก้ไข่"
+msgstr "แก้ไข"
 
 #: .\pleethai\templates\search.html:21
 msgid "検索ワード"
