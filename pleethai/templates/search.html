@@ -17,8 +17,13 @@
     <form class="form-inline w-50 flex-fill flex-md-grow-0 ml-auto" action="/">
         <input id="keyword" class="keyword-box" type="search" placeholder="{% trans '検索ワード' %}" aria-label="{% trans '検索ワード' %}">
     </form>
-    <button id="tagbutton" class="nav-btn" type="button">{% trans 'タグ' %}</button>
-    <button id="clearbutton" class="nav-btn" type="button">{% trans 'クリア' %}</button> 
+    <div class="nav-btn-container">
+        <button id="tagbutton" class="nav-btn" type="button">{% trans 'タグ' %}</button>
+        <span id="tagbadge" class="badge badge-light"></span>
+    </div>
+    <div class="nav-btn-container">
+        <button id="clearbutton" class="nav-btn" type="button">{% trans 'クリア' %}</button>
+    </div>
 </nav>
 <!-- Tab Navigation -->
 <ul class="nav nav-fill" role="tablist">

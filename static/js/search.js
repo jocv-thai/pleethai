@@ -197,6 +197,7 @@ function search() {
     $('#examplecontainer').append('<hr class="header-row-example">');
     loadWordList();
     loadExampleList();
+    onTagsChanged();
 }
 
 function loadWordList() {
@@ -329,6 +330,17 @@ function getTags() {
     return $('.tag-toggle:checked').map(function(){
         return $(this).val();
     }).get().join('+');
+}
+
+// Operation when selected tags are changed
+function onTagsChanged() {
+    // update number of selected tags
+    var len = $('.tag-toggle:checked').length;
+    if(len > 0){
+        $('#tagbadge').text(len);
+    } else {
+        $('#tagbadge').empty();
+    }
 }
 
 // Creaete query for Google Analytics

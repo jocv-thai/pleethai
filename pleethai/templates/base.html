@@ -50,7 +50,7 @@
     {% block extra_css %}{% endblock %}
 
     <title>GaifaaYeepun</title>
-    <link rel="shortcut icon" href="{% static 'img/favicon.png' %}" type="image/png">
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
 </head>
 
 <body>
@@ -58,7 +58,7 @@
     {% get_map_settings 'ABOUT_URL_MAP' LANGUAGE_CODE as ABOUT_PAGE_URL %}
     <div id="content" class="container">
         <nav class="navbar navbar-expand-md bg-faded align-items-end">
-            <a href="{% url 'search' %}" class="title navbar-brand"><img src="{% static 'img/title.png' %}" class="img-fluid" alt="GaifaaYeepun"></a>
+            <a href="{% url 'search' %}" class="title navbar-brand"><img src="{% static 'img/title.svg' %}" class="img-fluid" alt="GaifaaYeepun"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-items">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -78,10 +78,10 @@
                             </div>
                         </li>
                         <li class="nav-item-base">
-                            <button class="btn" type="submit" form="trans" name="language" value="th"><img src="{% static 'img/thaiflag.png' %}" alt="Thai"></button>
+                            <button class="btn" type="submit" form="trans" name="language" value="th"><img src="{% static 'img/thaiflag.svg' %}" alt="Thai"></button>
                         </li>
                         <li class="nav-item-base">
-                            <button class="btn" type="submit" form="trans" name="language" value="ja"><img src="{% static 'img/japanflag.png' %}" alt="Japanese"></button>
+                            <button class="btn" type="submit" form="trans" name="language" value="ja"><img src="{% static 'img/japanflag.svg' %}" alt="Japanese"></button>
                         </li>
                     </ul>
                 </form>
@@ -98,13 +98,13 @@
                         {% csrf_token %}
                         {% for field in form %}{{ field.as_hidden }}{% endfor %}
                         <input type="hidden" name="language" value="th">
-                        <a href="#" onclick="$('#menu-form-th').submit()" class="list-group-item-action"><span class="menu-span">ภาษาไทย / タイ語</span><img class="menu-img" src="{% static 'img/thaiflag.png' %}"></a>
+                        <a href="#" onclick="$('#menu-form-th').submit()" class="list-group-item-action"><span class="menu-span">ภาษาไทย / タイ語</span><img class="menu-img" src="{% static 'img/thaiflag.svg' %}"></a>
                     </form>
                     <form id="menu-form-ja" class="list-group-item list-group-item-action" name="trans" action="{% url 'set_language' %}" method="post">
                         {% csrf_token %}
                         {% for field in form %}{{ field.as_hidden }}{% endfor %}
                         <input type="hidden" name="language" value="ja">
-                        <a href="#" onclick="$('#menu-form-ja').submit()" class="list-group-item-action"><span class="menu-span">ภาษาญี่ปุ่น / 日本語</span><img class="menu-img" src="{% static 'img/japanflag.png' %}"></a>
+                        <a href="#" onclick="$('#menu-form-ja').submit()" class="list-group-item-action"><span class="menu-span">ภาษาญี่ปุ่น / 日本語</span><img class="menu-img" src="{% static 'img/japanflag.svg' %}"></a>
                     </form>
                 </ul>
 

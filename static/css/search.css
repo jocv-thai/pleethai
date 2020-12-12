@@ -12,18 +12,33 @@ input.keyword-box {
     width: 100%;
     padding-left: 10px;
 }
-button.nav-btn {
-    background-image: url("../img/nav-btn.png");
+.nav-btn-container {
+    position: relative;
+    background-color: #c6c5c3;
     width: 71px;
     height: 30px;
-    border: none;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
     margin-left: 10px;
     padding: 0;
+}
+button.nav-btn {
+    background-color: #c6c5c3;
+    width: 65px;
+    height: 26px;
+    border: 2px solid white;
+    box-sizing: border-box;
+    margin: 2px 3px;
+    padding: 0px;
+    text-align: center;
+    vertical-align: middle;
     color: white;
     white-space: nowrap;
+}
+#tagbadge {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    z-index: 999;
+    font-size: 50%;
 }
 li.nav-item-search {
     width: 50%;
@@ -31,7 +46,7 @@ li.nav-item-search {
 }
 #nav1 {
     height: auto;
-    background-image: url("../img/word.png");
+    background-image: url("../img/word.svg");
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100% auto;
@@ -39,15 +54,15 @@ li.nav-item-search {
     white-space: nowrap;
 }
 #nav1.active {
-    background-image: url("../img/word-select.png");
+    background-image: url("../img/word-select.svg");
 }
 #nav1:hover {
-    background-image: url("../img/word-select.png");
+    background-image: url("../img/word-select.svg");
     background-color: #cee5eb;
 }
 #nav2 {
     height: auto;
-    background-image: url("../img/example.png");
+    background-image: url("../img/example.svg");
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100% auto;
@@ -55,10 +70,10 @@ li.nav-item-search {
     white-space: nowrap;
 }
 #nav2.active {
-    background-image: url("../img/example-select.png");
+    background-image: url("../img/example-select.svg");
 }
 #nav2:hover {
-    background-image: url("../img/example-select.png");
+    background-image: url("../img/example-select.svg");
     background-color: #f8eded;
 }
 div.row-word {

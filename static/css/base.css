@@ -27,7 +27,7 @@ div.btn-group {
 div.btn-dic {
     width: 114px;
     height: 57px;
-    background-image: url("../img/btn-dic.png");
+    background-image: url("../img/btn-dic.svg");
     background-repeat: no-repeat;
     background-position: center bottom;
     flex-shrink: 0;
@@ -35,7 +35,7 @@ div.btn-dic {
 div.btn-req {
     width: 97px;
     height: 57px;
-    background-image: url("../img/btn-req.png");
+    background-image: url("../img/btn-req.svg");
     background-repeat: no-repeat;
     background-position: center bottom;
     margin-left: 10px;
