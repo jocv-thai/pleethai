@@ -25,3 +25,10 @@ GaifaaYeepunは日本語、タイ語、英語の単語、例文辞書サイト�
 
 - [リクエスト画面](./howtouse_request.md)  
 [<img src ="https://user-images.githubusercontent.com/42882840/101600726-0f5c7400-3a3f-11eb-8bad-3a91b21d8d55.png" alt="request demo" width="320">](./howtouse_request.md)
+
+
+# 参考文献
+このサイトに表示される単語の一部は、以下の情報をもとに作成しました。
+
+- 茨城工業高等専門学校様「タイ留学生のための基本技術用語集 150」
+- 八戸工業高等専門学校様「高専留学生のための用語集（タイ語編）」
