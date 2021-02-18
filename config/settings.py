@@ -151,6 +151,9 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
+# Admin
+APPEND_TABLES_MAX_NUM = 300
+
 # Mail send
 # *** SETTING FOR LOCAL DEVELOPMENT ENVIRONMENT ***
 EMAIL_BACKEND = 'django.core.mail.backends.filebased.EmailBackend'

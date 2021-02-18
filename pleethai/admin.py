@@ -1,6 +1,7 @@
 from django.contrib import admin
 from import_export import resources
 from import_export.admin import ImportExportModelAdmin
+from django.conf import settings
 from django.conf.urls import url
 from django.contrib import messages
 from django.shortcuts import redirect
@@ -44,14 +45,13 @@ class WordAdmin(ImportExportModelAdmin):
         urls = super().get_urls()
         my_urls = [
             url(r'^updatesystables/$', self.admin_site.admin_view(self.update_system_tables)),
+            url(r'^appendsystables/$', self.admin_site.admin_view(self.append_system_tables)),
         ]
         return my_urls + urls
 
     # Condition of search
-    def exist_japanese(self, sys_ja: SysWordJapanese, word: Word) -> bool:
-        if not isinstance(sys_ja, SysWordJapanese) or not isinstance(word, Word):
-            return False
-        return sys_ja.japanese == word.japanese and sys_ja.hiragana == word.hiragana
+    def exist_japanese(self, word1, word2) -> bool:
+        return word1.japanese == word2.japanese and word1.hiragana == word2.hiragana
 
     def delete_all(self, model: models.Model):
         while model.objects.count():
@@ -91,9 +91,60 @@ class WordAdmin(ImportExportModelAdmin):
 
     # Update tags
     def update_tags(self):
+        all_tags = Tag.objects.all().values_list('name', flat=True)
         for word_con in SysWordConnector.objects.all():
             for tag in _parse_tags(Word.objects.filter(id=word_con.id).first().tags):
+                # skip the invalid tag
+                if tag not in all_tags:
+                    continue
                 word_con.tags.add(tag)
+
+    # Append SysWordJapanse table and SysWordConnector table
+    # (append words number max is defined in settings.py)
+    def append_system_tables(self, request):
+        all_words = Word.objects.all()
+        exist_sys_japs = list(SysWordJapanese.objects.all())
+        sys_japanese = []
+        exist_word_ids = SysWordConnector.objects.all().values_list("id", flat=True).distinct()
+        sys_word_con = []
+        all_tags = Tag.objects.all().values_list('name', flat=True)
+        try:
+            for word in all_words:
+                # skip existed word
+                if word.id in exist_word_ids:
+                    continue
+
+                # check max append
+                if len(sys_word_con) >= settings.APPEND_TABLES_MAX_NUM:
+                    break
+
+                # Add a Word record (japanese & hiragana unique) to SysWordJapanese table
+                if not Common.contains(exist_sys_japs + sys_japanese, word, self.exist_japanese):
+                    sys_japanese.append(SysWordJapanese.create(word))
+                # Add a Word record to SysWordConnector table
+                tempConnect = SysWordConnector.create(word, exist_sys_japs + sys_japanese)
+                if tempConnect != None:
+                    sys_word_con.append(tempConnect)
+                    # create tag
+                    for tag in _parse_tags(word.tags):
+                        # skip the invalid tag
+                        if tag not in all_tags:
+                            continue
+                        tempConnect.tags.add(tag)
+            # append
+            SysWordJapanese.objects.bulk_create(sys_japanese)
+            SysWordConnector.objects.bulk_create(sys_word_con)
+
+            if len(sys_japanese) == 0 and len(sys_word_con) == 0:
+                messages.info(request, "Already all data appended.")
+            else:
+                messages.info(request, "Succeeded to append {0} system tables(id from {1} to {2})"
+                    .format(len(sys_word_con), sys_word_con[0].id, sys_word_con[-1].id))
+                messages.info(request, "Not-appended data may remain. Try to 'append system tables' again.")
+        except Exception as e:
+            messages.error(request, "Failed to append system tables")
+            messages.error(request, str(e))
+        return redirect(request.META['HTTP_REFERER'])
 
 class WordClassAdmin(ImportExportModelAdmin):
     resource_class = WordClassResource

@@ -7,6 +7,14 @@
   {% endif %}
   {{ block.super }}
   <li>
-    <a class="historylink" href="{{ request.path }}updatesystables/">Update Sys_Word Tables</a>
+    <a class="historylink" href="{{ request.path }}updatesystables/"
+      title="Update system tables related to word (all data)">
+      Update Sys_Word Tables
+    </a>
+    <a class="historylink" href="{{ request.path }}appendsystables/"
+      title="Do 'Update Sys_Word Tables' operation only for a limited number of table data. (to avoid REQUEST TIMEOUT)
+      You need to try this operation several times.">
+      Append Sys_Word Tables
+    </a>
   </li>
 {% endblock %}
