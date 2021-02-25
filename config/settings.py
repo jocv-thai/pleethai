@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_admin_logs',
     'import_export',
     'crispy_forms',
     'pleethai',
@@ -152,6 +153,7 @@ STATICFILES_DIRS = (
 )
 
 # Admin
+DJANGO_ADMIN_LOGS_ENABLED = False
 APPEND_TABLES_MAX_NUM = 300
 
 # Mail send
