@@ -1,0 +1,25 @@
+{% load i18n %}
+{% load settings_tag %}
+<div class="modal-body">
+    {% get_current_language as LANGUAGE_CODE %}
+    {% get_settings 'QUIZ_SELECT_MAP' as QUIZ_LIST %}
+    <h4>{% trans 'テストの種類を選択してください' %}</h4>
+    <form id="quiz-form">
+        {% for quiz in QUIZ_LIST %}
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="quizRadios" id="quizRadio{{ forloop.counter0 }}" 
+                    data-extra-url="{{ quiz.extra_url }}"
+                    data-quiz-tag-ids="{{ quiz.default_tag_ids }}"
+                    data-quiz-name="{% trans quiz.title_trans_key %}">
+                <label class="form-check-label" for="quizRadio{{ forloop.counter0 }}">
+                    <h5>{% trans quiz.title_trans_key %}</h5>
+                    {% trans quiz.description_trans_key %}
+                </label>
+            </div>
+        {% endfor %}
+    </form>
+</div>
+<div class="modal-footer">
+    <button id="quiz-start-button" type="button" class="btn btn-success" data-dismiss="modal">{% trans 'テスト開始' %}</button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">{% trans '閉じる' %}</button>
+</div>

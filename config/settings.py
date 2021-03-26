@@ -178,6 +178,25 @@ ABOUT_URL_MAP = {
     'th' : '',
 }
 
+# Quiz selection
+QUIZ_SELECT_MAP = [
+    # KANJI reading
+    {
+        'extra_url' : 'quiz_jap_read',
+        'title_trans_key' : 'title_kanji_read',
+        'description_trans_key' : 'description_kanji_read',
+        'default_tag_ids' : '151',    # comma separated (151=JLPT_N5_KANJI)
+    },
+    # KANJI writing
+    {
+        'extra_url' : 'quiz_jap_write',
+        'title_trans_key' : 'title_kanji_write',
+        'description_trans_key' : 'description_kanji_write',
+        'default_tag_ids' : '151',    # comma separated (151=JLPT_N5_KANJI)
+    },
+]
+
+
 # *** SETTING FOR PRODUCTION ENVIRONMENT ***
 # load "production_settings.py" & overwrite development settings
 # (no exist = development setting)

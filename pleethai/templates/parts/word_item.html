@@ -1,9 +1,10 @@
 {% load i18n tags %}
 {% get_current_language as LANGUAGE_CODE %}
-<div class="row row-word" href="/word/{{ object.id }}/">
+<div class="row row-word {% if object.japanese|cut:' ' == object.hiragana|cut:' ' %}hiragana-only{% endif %}"
+    href="/word/{{ object.id }}/">
     <div class="col-md-4">
-        <div><h5>{{ object.japanese }}</h5></div>
-        <div>{{ object.hiragana }} {{ object.roman }}</div>
+        <div><h5 class="field-kanji">{{ object.japanese }}</h5></div>
+        <div><span class="field-hiragana">{{ object.hiragana }}</span> <span class="field-roman">{{ object.roman }}</span></div>
         <div>
             {% if LANGUAGE_CODE == "ja" %}
                 <div class="badge {{ object.wordclass_id.slug }}">{{ object.wordclass_id.japanese }}</div>
@@ -29,7 +30,7 @@
     </div>
     <div class="col-md-4 verticalLine-word">
     {% with object.id|get_word_cons_by_sysword as word_con_list %}
-        <table class="table table-borderless table-trans">
+        <table class="table table-borderless table-trans field-thai field-english">
             <tbody>
                 {% for word_con in word_con_list %}
                     <tr>

@@ -96,9 +96,25 @@ class WordDetailView(generic.DetailView):
     model = SysWordJapanese
     template_name = "word_detail.html"
 
+class WordDetailQuizJapReadView(generic.DetailView):
+    model = SysWordJapanese
+    template_name = "word_detail_quiz_jap_read.html"
+
+class WordDetailQuizJapWriteView(generic.DetailView):
+    model = SysWordJapanese
+    template_name = "word_detail_quiz_jap_write.html"
+
 class ExampleDetailView(generic.DetailView):
     model = Example
     template_name = "example_detail.html"
+
+class ExampleDetailQuizJapReadView(generic.DetailView):
+    model = Example
+    template_name = "example_detail_quiz_jap_read.html"
+
+class ExampleDetailQuizJapWriteView(generic.DetailView):
+    model = Example
+    template_name = "example_detail_quiz_jap_write.html"
 
 def tags_all(request):
     tags = Tag.objects.all() \
@@ -115,3 +131,9 @@ def tags_all(request):
         tag_cat_map[k].append(t)
     object_list = list(sorted(tag_cat_map.values(), key=lambda tlist: tlist[0].id))
     return render(request, 'tags.html', {'object_list': object_list})
+
+def general_window(request, template, param=''):
+    object_list = {'param': param}
+    # if neccessary, do the operation here for each template
+
+    return render(request, template + '.html', {'object_list': object_list})

@@ -56,6 +56,7 @@
 <body>
     {% get_current_language as LANGUAGE_CODE %}
     {% get_map_settings 'ABOUT_URL_MAP' LANGUAGE_CODE as ABOUT_PAGE_URL %}
+    {% get_settings 'QUIZ_SELECT_MAP' as QUIZ_LIST %}
     <div id="content" class="container">
         <nav class="navbar navbar-expand-md bg-faded align-items-end">
             <a href="{% url 'search' %}" class="title navbar-brand"><img src="{% static 'img/title.svg' %}" class="img-fluid" alt="GaifaaYeepun"></a>
@@ -90,7 +91,14 @@
         <div class="collapse text-right" id="nav-items">
                 <ul class="list-group">
                     {% if ABOUT_PAGE_URL %}
-                    <a class="list-group-item list-group-item-action" target="_blank" rel="noopener noreferrer" href="{{ ABOUT_PAGE_URL }}" role="button"><span class="btn-text">{% trans 'このサイトについて' %}</span></a>
+                    <a class="list-group-item list-group-item-action" target="_blank" rel="noopener noreferrer" href="{{ ABOUT_PAGE_URL }}" role="button">
+                        <span id="menu-about" class="btn-text"><span class="menu-icon icon-holder"></span>{% trans 'このサイトについて' %}</span>
+                    </a>
+                    {% endif %}
+                    {% if QUIZ_LIST %}
+                    <a class="list-group-item list-group-item-action menu-quiz general-modal-button none-in-request" href="/gen/quiz_select" role="button">
+                        <span id="menu-quiz" class="btn-text"><span class="menu-icon icon-holder"></span>{% trans '日本語テスト' %}</span>
+                    </a>
                     {% endif %}
                     <a class="list-group-item list-group-item-action" href="{% url 'search' %}" role="button"><span class="btn-text">{% trans '単語・例文' %}</span></a>
                     <a class="list-group-item list-group-item-action" href="{% url 'mail_input' %}" role="button"><span class="btn-text">{% trans 'リクエスト' %}</span></a>
@@ -116,10 +124,24 @@
             <a target="_blank" rel="noopener noreferrer" href="{{ ABOUT_PAGE_URL }}">{% trans 'このサイトについて' %}</a>
         </div>
         {% endif %}
+        {% if QUIZ_LIST %}
+        <div id="icon-quiz" class="icon_div none-in-request">
+            <a class="general-modal-button" href="/gen/quiz_select">{% trans '日本語テスト' %}</a>
+        </div>
+        {% endif %}
+        
+        <!-- General Modal Window -->
+        <div class="modal fade show" id="general-modal">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content"></div>
+            </div>
+        </div>
         
         {% block content %}
         {{ content }}
         {% endblock %}
+        
+        <div id="info-bar"></div>
     </div>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

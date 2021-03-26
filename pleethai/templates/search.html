@@ -5,11 +5,15 @@
 <script type="text/javascript" src="{% static 'js/jquery.inview.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/bootstrap4-toggle.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/search.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/quiz.common.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/quiz.reading.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/quiz.writing.js' %}"></script>
 {% endblock %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/bootstrap4-toggle.min.css' %}">
 <link rel="stylesheet" href="{% static 'css/search.css' %}">
+<link rel="stylesheet" href="{% static 'css/quiz.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -45,7 +49,7 @@
                 <div class="col-md-4 verticalLine-word">
                     <span class="h5 header">{% trans 'タグ' %}</span>
                 </div>
-                <div class="col-md-4 verticalLine-word">
+                <div class="col-md-4 verticalLine-word field-thai field-english">
                     <span class="h5 header">{% trans 'タイ語' %} / {% trans '英語' %}</span>
                 </div>
             </div>
@@ -66,7 +70,7 @@
                 <div class="col-lg-3 verticalLine-example">
                     <span class="h5 header">{% trans 'タグ' %}</span>
                 </div>
-                <div class="col-lg-4 verticalLine-example">
+                <div class="col-lg-4 verticalLine-example field-thai">
                         <span class="h5 header">{% trans 'タイ語' %}</span>
                 </div>
             </div>

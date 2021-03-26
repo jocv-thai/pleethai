@@ -1,0 +1,125 @@
+/* *** Quiz Link Icon *** */
+#icon-quiz {
+    top: 90px;
+}
+#icon-quiz a::before, #menu-quiz .icon-holder::before {
+    font-size: 22px;
+    content: '\f1ab';
+}
+
+/* *** Quiz Select Modal *** */
+#quiz-form .form-check {
+    margin-bottom: 1rem;
+}
+
+/* *** Common Setting in Quiz Mode (effected to search screen & modal) *** */
+/* Quiz - Japanese Reading */
+#content[data-extra-url="quiz_jap_read"] .row.hiragana-only,
+#content[data-extra-url="quiz_jap_read"] .row.hiragana-only + hr,
+#content[data-extra-url="quiz_jap_read"] .field-hiragana,
+#content[data-extra-url="quiz_jap_read"] .field-roman,
+#content[data-extra-url="quiz_jap_read"] .field-thai,
+#content[data-extra-url="quiz_jap_read"] .field-english
+{
+    display: none;
+}
+/* Quiz - Japanese Writing */
+#content[data-extra-url="quiz_jap_write"] .row.hiragana-only,
+#content[data-extra-url="quiz_jap_write"] .row.hiragana-only + hr,
+#content[data-extra-url="quiz_jap_write"] .field-kanji,
+#content[data-extra-url="quiz_jap_write"] .field-roman,
+#content[data-extra-url="quiz_jap_write"] .field-thai,
+#content[data-extra-url="quiz_jap_write"] .field-english
+{
+    display: none;
+}
+
+/* *** Search Screen *** */
+/* Quiz mode ('data-extra-url' element starts with 'quiz') */
+#content[data-extra-url^="quiz"] #searchcontainer .row {
+    padding: 10px 0px 10px 0px;
+    border-radius: 5px;
+    border: 2px #097f9d solid;
+    box-shadow: 5px 5px #097f9d;
+    margin-bottom: 10px;
+}
+#content[data-extra-url^="quiz"] #searchcontainer .row *[class^="field-"]:before {
+    content: 'Q.';
+    margin-right: 5px;
+    font-weight: bold;
+}
+#content[data-extra-url^="quiz"] #searchcontainer #wordheader,
+#content[data-extra-url^="quiz"] #searchcontainer #exampleheader,
+#content[data-extra-url^="quiz"] #searchcontainer .row + hr {
+    /* hide header & hr in search screen */
+    display: none;
+}
+
+/* *** Quiz Modal *** */
+.field-target {
+    background-color: #cce4ea66;
+    font-weight: bolder;
+    border-bottom: solid gray 1px;
+    margin: 3px;
+}
+.field-answer span {
+    background-color: #cce4ea66;
+    font-weight: bolder;
+    border-bottom: solid gray 1px;
+    margin: 1px;
+}
+
+/* Buttons */
+.quiz-select-button{
+    display: none;
+}
+
+/* Selections */
+#quiz_target_words {
+    margin-bottom: 5px;
+}
+.quiz-question-string {
+    display: none;
+}
+
+.quiz-ng.quiz-answered {
+    background-color: #f8d7da;
+}
+.quiz-ok.quiz-answered {
+    background-color: #d4edda;
+}
+.quiz-selected {
+    background-color: #cee5eb;
+}
+.quiz-selected::before {
+    position: absolute;
+    padding: 0px;
+    top: 2px;
+    left: 2px;
+    content: '\f058';
+}
+
+#quiz_selection_temp {
+    display: none;
+}
+#quiz_badges {
+    display: none;
+}
+.badge.badge-ok, .badge.badge-ng {
+    font-size: small;
+    font-weight: bold;
+    margin: 0px;
+    margin-left: 0.1rem;
+}
+
+.quiz-selections .icon-holder::after {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+}
+
+/* Hints */
+#accordionHint {
+    display: none;
+    font-size: smaller;
+}

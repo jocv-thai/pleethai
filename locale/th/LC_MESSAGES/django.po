@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-17 12:38+0900\n"
+"POT-Creation-Date: 2021-02-23 17:43+0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,23 +56,110 @@ msgstr "ex)'พรุ่งนี้' ไม่ได้ลงทะเบีย
 msgid "メールアドレスが確認用と一致しません。"
 msgstr "ไม่ตรงกันอีเมลสำหรับการยืนยัน"
 
-#: .\pleethai\templates\base.html:68 .\pleethai\templates\base.html:88
+#: .\pleethai\templates\base.html:74 .\pleethai\templates\base.html:104
 msgid "単語・例文"
 msgstr "คำและประโยค"
 
-#: .\pleethai\templates\base.html:73 .\pleethai\templates\base.html:89
+#: .\pleethai\templates\base.html:79 .\pleethai\templates\base.html:105
 #: .\pleethai\templates\request.html:5 .\pleethai\templates\request.html:14
 msgid "リクエスト"
 msgstr "ขอร้อง"
 
-#: .\pleethai\templates\example_detail.html:26
+#: .\pleethai\templates\example_detail.html:28
 msgid "構成語"
 msgstr "คำศัพท์ประกอบ"
 
-#: .\pleethai\templates\example_detail.html:43
-#: .\pleethai\templates\tags.html:27 .\pleethai\templates\word_detail.html:62
+#: .\pleethai\templates\example_detail.html:45
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:96
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:96
+#: .\pleethai\templates\quiz_select.html:24 .\pleethai\templates\tags.html:27
+#: .\pleethai\templates\word_detail.html:64
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:77
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:77
 msgid "閉じる"
 msgstr "ปิด"
+
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:14
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:14
+msgid "問題を選んでください"
+msgstr "เลือกคำถามที่จะตอบ"
+
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:52
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:52
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:28
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:28
+msgid "正解"
+msgstr "ถูกต้อง"
+
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:53
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:53
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:29
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:29
+msgid "不正解"
+msgstr "ไม่ถูกต้อง"
+
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:64
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:78
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:64
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:78
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:39
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:59
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:39
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:59
+msgid "ヒント"
+msgstr "คำใบ้"
+
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:78
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:78
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:59
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:59
+msgid "発音"
+msgstr "การออกเสียง"
+
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:93
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:93
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:74
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:74
+msgid "答え確認"
+msgstr "เช็คคำตอบ"
+
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:94
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:94
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:75
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:75
+msgid "前の問題"
+msgstr "ข้อสอบก่อนหน้านี้"
+
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:95
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:95
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:76
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:76
+msgid "次の問題"
+msgstr "ข้อสอบต่อไป"
+
+#: .\pleethai\templates\quiz_select.html:6
+msgid "テストの種類を選択してください"
+msgstr "เลือกแบบทดสอบ"
+
+#: .\pleethai\templates\quiz_select.html:6 .\pleethai\templates\quiz_select.html:8
+msgid "title_kanji_read"
+msgstr "แบบทดสอบการอ่าน"
+
+#: .\pleethai\templates\quiz_select.html:9
+msgid "description_kanji_read"
+msgstr "ข้อสอบที่เลือก Hiragana จาก Kanji หรือ Katakana"
+
+#: .\pleethai\templates\quiz_select.html:13 .\pleethai\templates\quiz_select.html:15
+msgid "title_kanji_write"
+msgstr "แบบทดสอบการเขียน"
+
+#: .\pleethai\templates\quiz_select.html:16
+msgid "description_kanji_write"
+msgstr "ข้อสอบที่เลือก Kanji หรือ Katakana จาก Hiragana"
+
+#: .\pleethai\templates\quiz_select.html:23
+msgid "テスト開始"
+msgstr "เริ่มการสอบ"
 
 #: .\pleethai\templates\request.html:17
 msgid "確認"
@@ -104,43 +191,55 @@ msgstr "ส่ง"
 msgid "修正"
 msgstr "แก้ไข"
 
-#: .\pleethai\templates\search.html:21
+#: .\pleethai\templates\search.html:18
 msgid "検索ワード"
 msgstr "คำหา"
 
-#: .\pleethai\templates\search.html:23 .\pleethai\templates\search.html:44
-#: .\pleethai\templates\search.html:65
+#: .\pleethai\templates\search.html:21 .\pleethai\templates\search.html:46
+#: .\pleethai\templates\search.html:67
 msgid "タグ"
 msgstr "แท็ก"
 
-#: .\pleethai\templates\search.html:24 .\pleethai\templates\tags.html:26
+#: .\pleethai\templates\search.html:25 .\pleethai\templates\tags.html:26
 msgid "クリア"
 msgstr "ล้าง"
 
-#: .\pleethai\templates\search.html:29
+#: .\pleethai\templates\search.html:31
 msgid "単語"
 msgstr "คำศัพท์"
 
-#: .\pleethai\templates\search.html:32 .\pleethai\templates\word_detail.html:48
+#: .\pleethai\templates\search.html:34 .\pleethai\templates\word_detail.html:50
 msgid "例文"
 msgstr "ตัวอย่างประโยค"
 
-#: .\pleethai\templates\search.html:41 .\pleethai\templates\search.html:62
+#: .\pleethai\templates\search.html:43 .\pleethai\templates\search.html:64
 msgid "日本語"
 msgstr "ภาษาญี่ปุ่น"
 
-#: .\pleethai\templates\search.html:47 .\pleethai\templates\search.html:68
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:64
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:64
+#: .\pleethai\templates\search.html:49 .\pleethai\templates\search.html:70
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:39
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:39
 msgid "タイ語"
 msgstr "ภาษาไทย"
 
-#: .\pleethai\templates\search.html:47
+#: .\pleethai\templates\example_detail_quiz_jap_read.html:64
+#: .\pleethai\templates\example_detail_quiz_jap_write.html:64
+#: .\pleethai\templates\search.html:49
+#: .\pleethai\templates\word_detail_quiz_jap_read.html:39
+#: .\pleethai\templates\word_detail_quiz_jap_write.html:39
 msgid "英語"
 msgstr "ภาษาอังกฤษ"
 
-#: .\pleethai\templates\word_detail.html:32
+#: .\pleethai\templates\word_detail.html:34
 msgid "定義"
 msgstr "ความหมาย"
 
-#: .\pleethai\templates\search.html:80
+#: .\pleethai\templates\base.html:96 .\pleethai\templates\base.html:125
 msgid "このサイトについて"
 msgstr "เกี่ยวกับเว็บไซต์นี้"
+
+#: .\pleethai\templates\base.html:101 .\pleethai\templates\base.html:130
+msgid "日本語テスト"
+msgstr "สอบภาษาญี่ปุ่น"
