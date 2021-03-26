@@ -58,6 +58,60 @@ input.flag {
     margin-right: 10px;
 }
 
+.prev-card-button,
+.next-card-button {
+    display: none;
+}
+.prev-card-button[href],
+.next-card-button[href] {
+    display: inherit;
+}
+
+/* *** for Info Bar *** */
+#info-bar {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    padding: 5px;
+    z-index: 10;
+    pointer-events: none;
+    
+    text-align: left;
+    white-space: nowrap;
+    font-weight: bold;
+    color: black;
+    background-color: rgb(255, 255, 255, 0.6);
+    border-radius: 0px 5px 0px 0px;
+}
+#info-bar:empty {
+    display: none;
+}
+
+/* *** for FontAwesome Icons *** */
+i.fas {
+    margin: auto;
+    text-align-last: center;
+    vertical-align: middle;
+}
+.icon-holder::before, .icon-holder::after {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    display: inline-block;
+    padding-left: 5px;
+}
+.menu-icon {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    color: #097f9d;
+}
+
+.collapse-controll.icon-holder::after {
+    content: '\f0d7';
+}
+.collapse-controll[aria-expanded="true"].icon-holder::after {
+    content: '\f0d8';
+}
+
 /* *** Floating Icons (shown in big screen) *** */
 .icon_div {
     display: none; /* only shown in big screen */
@@ -106,14 +160,21 @@ input.flag {
     left: 10px;
     margin: auto;
     text-align: center;
-
+}
+.icon_div a {
+    /* on default, the link (click event) of elements in the icon is disabled */
+    pointer-events: none;
+}
+.icon_div.opened a {
+    /* click is enabled after icon opened */
+    pointer-events: auto;
 }
 
 /* About Page Link Icon */
 #icon_about {
     top: 30px;
 }
-#icon_about a::before{
+#icon_about a::before, #menu-about .icon-holder::before {
     content: '\f129';
 }
 

@@ -1,9 +1,10 @@
 {% load i18n tags %}
-<div class="row row-example" href="/example/{{ object.id }}/">
+<div class="row row-example {% if object.japanese|cut:' ' == object.hiragana|cut:' ' %}hiragana-only{% endif %}"
+    href="/example/{{ object.id }}/">
     <div class="col-lg-5">
-        <div><h5>{{ object.japanese }}</h5></div>
-        <div>{{ object.hiragana }}</div>
-        <div>{{ object.roman }}</div>
+        <div><h5 class="field-kanji">{{ object.japanese }}</h5></div>
+        <div class="field-hiragana">{{ object.hiragana }}</div>
+        <div class="field-roman">{{ object.roman }}</div>
     </div>
     <div class="col-lg-3 verticalLine-example">
         {% get_current_language as LANGUAGE_CODE %}
@@ -20,7 +21,7 @@
         {% endwith %}
     </div>
     <div class="col-lg-4 verticalLine-example">
-        <div><h6>{{ object.thai }}</h6></div>
+        <div><h6 class="field-thai">{{ object.thai }}</h6></div>
     </div>
 </div>
 <hr>

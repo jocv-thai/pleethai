@@ -22,5 +22,18 @@ $(document).ready(function(){
         } else {
             // link is only valid when opened
         }
+    })
+    // Show general modal
+    .on('click', '.general-modal-button', function() {
+        $("#general-modal .modal-content").empty();
+        $("#general-modal .modal-content").load($(this).attr("href"), function() {
+            // set speakbale indicator
+            setSpeakableOrNot();
+
+            $("#general-modal").modal("show");
+        });
+
+        // no jump
+        return false;
     });
 });

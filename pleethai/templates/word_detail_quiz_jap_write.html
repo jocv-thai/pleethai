@@ -1,0 +1,78 @@
+{% load i18n tags %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="modal-body quiz-modal-body">
+    <section id="quiz_question">
+        <div><h4 class="field-kanji"><span class="field-answer">{{ object.japanese }}</span></h4></div>
+        <div class="field-hiragana"><span class="field-target">{{ object.hiragana }}</span></div>
+    </section>
+
+    <hr>
+
+    <div class="quiz-question-string">
+        <span class="field-target">　　　</span>の ことばは どう かきますか。<br>
+            1・2・3・4から いちばん いい ものを ひとつ えらんで ください。
+    </div>
+    <div id="quiz_selection_temp" class="card mb-0 icon-holder">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-10">
+                    <h6>
+                        <span class="field-num">1</span>. <span class="field-selection"></span>
+                    </h6>
+                </div>
+                <div class="col-2 speech-button-ja"><div class="speech-target icon-holder"></div></div>
+            </div>
+        </div>
+    </div>
+    <div id="quiz_badges">
+        <div class="badge badge-pill badge-ok badge-primary">{% trans '正解' %}</div>
+        <div class="badge badge-pill badge-ng badge-danger">{% trans '不正解' %}</div>
+    </div>
+    <section class="quiz-selections"></section>
+
+    <hr class="section_hr">
+    <div class="accordion" id="accordionHint">
+        <div class="card">
+            <div id="hintButton1" class="card-header">
+                <div class="collapse-controll icon-holder" data-toggle="collapse"
+                role="button" href="#hintBody1" aria-expanded="false" aria-controls="hintBody1">
+                    {% trans 'ヒント' %}1 ({% trans 'タイ語' %}, {% trans '英語' %})
+                </div>
+            </div>
+            <div id="hintBody1" class="collapse" aria-labelledby="hintButton1" data-parent="#accordionHint">
+                <div class="card-body">
+                    {% with object.id|get_word_cons_by_sysword as word_con_list %}
+                    {% for word_con in word_con_list %}
+                    <div class="row">
+                        <div class="col-6 speech-button-th"><h6>{{ forloop.counter }}. <span class="speech-target">{{ word_con.word_id.thai }}</span></h6></div>
+                        <div class="col-6 speech-button-en"><h6 class="speech-target">{{ word_con.word_id.english }}</h6></div>
+                    </div>
+                    {% endfor %}
+                    {% endwith %}
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="hintButton2" class="card-header">
+                <div class="collapse-controll icon-holder" data-toggle="collapse"
+                role="button" href="#hintBody2" aria-expanded="false" aria-controls="hintBody2">
+                    {% trans 'ヒント' %}2 ({% trans '発音' %})
+                </div>
+            </div>
+            <div id="hintBody2" class="collapse" aria-labelledby="hintButton2" data-parent="#accordionHint">
+                <div class="card-body">
+                    <div class="speech-button-ja">
+                        <span id="quiz_hint" class="speech-target"></span>
+                        <div>{{ object.roman }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary quiz-select-button mr-auto">{% trans '答え確認' %}</button>
+    <button type="button" class="btn btn-info prev-card-button">{% trans '前の問題' %}<i class="fas fa-long-arrow-alt-up"></i></button>
+    <button type="button" class="btn btn-info next-card-button">{% trans '次の問題' %}<i class="fas fa-long-arrow-alt-down"></i></button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">{% trans '閉じる' %}</button>
+</div>

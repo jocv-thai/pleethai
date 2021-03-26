@@ -37,6 +37,9 @@ GaifaaYeepun(ไก่ฟ้าญี่ปุ่น) คือเว็บไ�
 - [หน้าขอร้อง](./howtouse_request.md)  
 [<img src ="https://user-images.githubusercontent.com/42882840/101600726-0f5c7400-3a3f-11eb-8bad-3a91b21d8d55.png" alt="request demo" width="320">](./howtouse_request.md)
 
+- [หน้าสอบ](./howtouse_quiz.md)  
+[<img src ="https://user-images.githubusercontent.com/42882840/109138683-f93c9500-779d-11eb-82d2-f56818de73ee.gif" alt="quiz demo" width="320">](./howtouse_quiz.md)
+
 
 # การดูแลรักษาระบบ(System Maintenance Procedure)
 - วิธีอัพเดทระบบ

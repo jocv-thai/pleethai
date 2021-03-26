@@ -1,0 +1,97 @@
+{% load i18n tags %}
+{% get_current_language as LANGUAGE_CODE %}
+<div class="modal-body quiz-modal-body">
+    <section id="quiz_question">
+        <div><h4 class="field-kanji"><span class="field-answer">{{ object.japanese }}</span></h4></div>
+        <div class="field-hiragana"><span class="field-target">{{ object.hiragana }}</span></div>
+    </section>
+
+    <hr>
+    
+    {% with object.id|get_consts_by_example as const_list %}
+    {% if const_list %}
+    <div id="quiz_target_words">
+        {% trans '問題を選んでください' %}<br>
+        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            {% for const in const_list %}
+            {% with const.word_id as word_con %}
+                <label class="btn btn-outline-primary" data-question="{{ word_con.word_id.hiragana }}" data-answer="{{ word_con.word_id.japanese }}">
+                    <input type="radio" name="quiz_targets" id="option{{ forloop.counter }}" autocomplete="off">
+                        {{ word_con.word_id.hiragana }}
+
+                    {% with word_con.word_id.id|get_tags_by_sysword as tag_list %}
+                    {% for tag in tag_list %}
+                    <div class="tag-badge badge badge-primary d-none" data-tag-id="{{ tag.id }}"><h6>{{ tag.slug }}</h6></div>
+                    {% endfor %}
+                    {% endwith %}
+                </label>
+            {% endwith %}
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+    {% endwith %} 
+
+    <div class="quiz-question-string">
+        <span class="field-target">　　　</span>の ことばは　どう かきますか。<br>
+            1・2・3・4から いちばん いい ものを ひとつ えらんで ください。
+    </div>
+    <div id="quiz_selection_temp" class="card mb-0 icon-holder">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-10">
+                    <h6>
+                        <span class="field-num">1</span>. <span class="field-selection"></span>
+                    </h6>
+                </div>
+                <div class="col-2 speech-button-ja"><div class="speech-target icon-holder"></div></div>
+            </div>
+        </div>
+    </div>
+    <div id="quiz_badges">
+        <div class="badge badge-pill badge-ok badge-primary">{% trans '正解' %}</div>
+        <div class="badge badge-pill badge-ng badge-danger">{% trans '不正解' %}</div>
+    </div>
+    <section class="quiz-selections"></section>
+    
+    <div class="accordion" id="accordionHint">
+        <hr>
+
+        <div class="card">
+            <div id="hintButton1" class="card-header">
+                <div class="collapse-controll icon-holder" data-toggle="collapse"
+                role="button" href="#hintBody1" aria-expanded="false" aria-controls="hintBody1">
+                    {% trans 'ヒント' %}1 ({% trans 'タイ語' %}, {% trans '英語' %})
+                </div>
+            </div>
+            <div id="hintBody1" class="collapse" aria-labelledby="hintButton1" data-parent="#accordionHint">
+                <div class="card-body">
+                    <div class="speech-button-th"><h4 class="speech-target">{{ object.thai }}</h4></div>
+                    <div class="speech-button-en"><span class="speech-target">{{ object.english }}</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="hintButton2" class="card-header">
+                <div class="collapse-controll icon-holder" data-toggle="collapse"
+                role="button" href="#hintBody2" aria-expanded="false" aria-controls="hintBody2">
+                    {% trans 'ヒント' %}2 ({% trans '発音' %})
+                </div>
+            </div>
+            <div id="hintBody2" class="collapse" aria-labelledby="hintButton2" data-parent="#accordionHint">
+                <div class="card-body">
+                    <div class="speech-button-ja">
+                        <span id="quiz_hint" class="speech-target"></span>
+                        <div>{{ object.roman }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-primary quiz-select-button mr-auto">{% trans '答え確認' %}</button>
+    <button type="button" class="btn btn-info prev-card-button">{% trans '前の問題' %}<i class="fas fa-long-arrow-alt-up"></i></button>
+    <button type="button" class="btn btn-info next-card-button">{% trans '次の問題' %}<i class="fas fa-long-arrow-alt-down"></i></button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">{% trans '閉じる' %}</button>
+</div>

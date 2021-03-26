@@ -35,8 +35,7 @@ $(document).ready(function(){
     })
     // Clear keyword and tags
     .on('click', '#clearbutton', function() {
-        allToggleOff();
-        $('#keyword').val('');
+        clearSearchConditions();
         search();
     })
     // Change backgroundcolor of selected item
@@ -75,21 +74,10 @@ $(document).ready(function(){
         }
         if (!holdFlag) {
             if ($(this).is('.row-word, .row-example')) {
-                $( "#detail-modal .modal-content" ).load($(this).attr("href"), function() {
-                    // set speakbale indicator
-                    setSpeakableOrNot();
-
-                    $("#detail-modal").modal("show");
-                });
+                loadDetailModal($(this).attr("href"));
             } else if($(this).is('.modallink-word, .modallink-example')) {
-                $("#detail-modal .modal-content").load($(this).attr("href"), function() {
-                    // set speakbale indicator
-                    setSpeakableOrNot();
-                });
+                loadDetailModal($(this).attr("href"));
             }
-
-            // modal word/example access
-            sendGAPageView($(this).attr("href"));
         }
     })
     // Load items
@@ -123,11 +111,7 @@ $(document).ready(function(){
 
     // Click tag in search result
     .on('click', '.tag-badge', function() {
-
-        // clear all tag toggles
-        allToggleOff();
-        // clear keyword
-        $('#keyword').val('');
+        clearSearchConditions();
 
         // check selected tag
         var value =  $(this).attr('value');
@@ -185,6 +169,7 @@ function initTimer() {
 }
 
 function search() {
+    // reset all
     wordPage = 0;
     examplePage = 0;
     var wordHeader = $('#wordheader');
@@ -195,9 +180,17 @@ function search() {
     $('#examplecontainer').append(exampleHeader);
     $('#wordcontainer').append('<hr class="header-row-word">');
     $('#examplecontainer').append('<hr class="header-row-example">');
+
+    // load
     loadWordList();
     loadExampleList();
     onTagsChanged();
+}
+function clearSearchConditions() {
+    // clear all tag toggles
+    allToggleOff();
+    // clear keyword
+    $('#keyword').val('');
 }
 
 function loadWordList() {
@@ -295,6 +288,27 @@ function loadExampleList() {
     });
 }
 
+/*** Detail Modal Functions ***/
+function loadDetailModal(url) {
+    var extra_url = "";
+    if($('#content').attr('data-extra-url')){
+        extra_url = $('#content').attr('data-extra-url');
+    }
+    $( "#detail-modal .modal-content" ).load(url + extra_url, function() {
+        // set speakbale indicator
+        setSpeakableOrNot();
+
+        $("#detail-modal").attr({
+            "data-url": url,
+        });
+        $("#detail-modal").modal("show");
+    });
+
+    // modal access
+    sendGAPageView(url);
+}
+
+/*** Tag Functions ***/
 function loadTagList() {
     $('#tagloading').show();
     $.ajax({
@@ -326,10 +340,13 @@ function allToggleOff() {
 }
 
 // Get selected tags
-function getTags() {
+function getCheckedTagsList() {
     return $('.tag-toggle:checked').map(function(){
         return $(this).val();
-    }).get().join('+');
+    }).get();
+}
+function getTags() {
+    return getCheckedTagsList().join('+');
 }
 
 // Operation when selected tags are changed
