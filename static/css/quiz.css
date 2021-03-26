@@ -2,10 +2,6 @@
 #icon-quiz {
     top: 90px;
 }
-#icon-quiz, #menu-quiz {
-    display: inherit !important;
-}
-
 #icon-quiz a::before, #menu-quiz .icon-holder::before {
     font-size: 22px;
     content: '\f1ab';

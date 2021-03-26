@@ -96,7 +96,7 @@
                     </a>
                     {% endif %}
                     {% if QUIZ_LIST %}
-                    <a class="d-none list-group-item list-group-item-action menu-quiz general-modal-button" href="/gen/quiz_select" role="button">
+                    <a class="list-group-item list-group-item-action menu-quiz general-modal-button none-in-request" href="/gen/quiz_select" role="button">
                         <span id="menu-quiz" class="btn-text"><span class="menu-icon icon-holder"></span>{% trans '日本語テスト' %}</span>
                     </a>
                     {% endif %}
@@ -125,7 +125,7 @@
         </div>
         {% endif %}
         {% if QUIZ_LIST %}
-        <div id="icon-quiz" class="d-none icon_div">
+        <div id="icon-quiz" class="icon_div none-in-request">
             <a class="general-modal-button" href="/gen/quiz_select">{% trans '日本語テスト' %}</a>
         </div>
         {% endif %}
