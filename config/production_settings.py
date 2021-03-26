@@ -14,6 +14,15 @@ ABOUT_URL_MAP = {
     'th' : 'https://jocv-thai.github.io/pleethai/th/',
 }
 
+REQUEST_MAIL_SEND_INFO = {
+    'subject': 'GaifaaYeepun Request Mail',
+    'templete_path': 'mails/request.txt',
+    'from_email': 'pleethai.jv@gmail.com',
+    'recipient_list': [
+        'pleethai.jv@gmail.com',
+    ],
+}
+
 ### Heroku Setting
 # Activate Django-Heroku.
 django_heroku.settings(locals())
