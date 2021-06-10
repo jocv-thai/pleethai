@@ -4,7 +4,7 @@ defusedxml==0.6.0
 diff-match-patch==20181111
 dj-database-url==0.5.0
 dj-static==0.0.6
-Django==3.0.7
+Django==3.1.12
 django-admin-logs==1.0.1
 django-crispy-forms==1.9.0
 django-gmailapi-backend==0.1.0
